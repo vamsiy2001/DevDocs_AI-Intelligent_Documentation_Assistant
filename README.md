@@ -8,6 +8,8 @@
 
 ![Architecture](docs/architecture.png)
 
+<img width="1236" height="714" alt="Screenshot 2026-01-14 at 8 27 14 PM" src="https://github.com/user-attachments/assets/ba6a36c2-941b-4ba5-9ae0-61cc45c5fe36" />
+
 ## ✨ Features
 
 - **🔍 Hybrid Search**: Dense embeddings + BM25 + CrossEncoder reranking
@@ -47,10 +49,6 @@ User Query
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- Python 3.9+
-- pip
 
 ### Installation
 
@@ -82,45 +80,8 @@ cp .env.example .env
 ### Run Demo
 
 ```bash
-# Quick test
-python quickstart.py
-
 # Or run Gradio app
 python app/gradio_app.py
-```
-
-## 📖 Usage
-
-### Basic Usage
-
-```python
-from src.retrieval import HybridRetriever
-from src.agents import SimpleRAG
-
-# Initialize
-retriever = HybridRetriever()
-rag = SimpleRAG(retriever)
-
-# Query
-result = rag.query("How do I use LangChain agents?")
-
-print(result["answer"])
-print(f"Used {result['num_sources']} sources")
-```
-
-### With Evaluation
-
-```python
-from src.evaluation import RAGEvaluator
-
-evaluator = RAGEvaluator()
-test_cases = evaluator.create_test_dataset()
-
-# Evaluate
-dataset = evaluator.prepare_eval_dataset(rag, test_cases)
-results = evaluator.evaluate_rag(dataset)
-
-print(evaluator.generate_report(results))
 ```
 
 ## 🛠️ Tech Stack
@@ -134,23 +95,6 @@ print(evaluator.generate_report(results))
 | **Framework** | LangChain + LangGraph | Industry standard |
 | **Evaluation** | RAGAS | Comprehensive metrics |
 | **Deployment** | HuggingFace Spaces | Free hosting |
-
-## 📂 Project Structure
-
-```
-devdocs-ai/
-├── src/
-│   ├── retrieval/        # Hybrid search, reranking
-│   ├── agents/           # LangGraph agents
-│   ├── evaluation/       # RAGAS evaluation
-│   ├── ingestion/        # Document loading
-│   └── api/              # FastAPI endpoints
-├── app/                  # Gradio/Streamlit apps
-├── data/                 # Vector stores, datasets
-├── notebooks/            # Experiments
-├── scripts/              # CLI tools
-└── tests/                # Unit tests
-```
 
 ## 📈 Evaluation Results
 
@@ -177,13 +121,6 @@ git remote add space https://huggingface.co/spaces/YOUR_USERNAME/devdocs-ai
 
 # Push
 git push space main
-```
-
-### Docker (Coming Soon)
-
-```bash
-docker build -t devdocs-ai .
-docker run -p 7860:7860 devdocs-ai
 ```
 
 ## 📝 Documentation

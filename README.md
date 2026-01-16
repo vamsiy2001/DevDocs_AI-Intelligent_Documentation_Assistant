@@ -80,8 +80,15 @@ cp .env.example .env
 ### Run Demo
 
 ```bash
-# Or run Gradio app
+# 1. Load data
+python scripts/ingest_enhanced_docs.py
+
+# 2. Test the app
 python app/gradio_app.py
+
+# 3. Run evaluation
+python scripts/run_evaluation.py
+
 ```
 
 ## 🛠️ Tech Stack

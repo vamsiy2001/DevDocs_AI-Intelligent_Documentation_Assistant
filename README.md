@@ -1,12 +1,10 @@
 # 🤖 DevDocs AI - Intelligent Documentation Assistant
 
-[![Demo](https://img.shields.io/badge/🤗-Demo-yellow)]([https://huggingface.co/spaces/vamsiyvk/devdocsAI])
+[![Demo](https://img.shields.io/badge/🤗-Demo-yellow)](https://huggingface.co/spaces/vamsiyvk/devdocsAI)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > Production-grade RAG system with hybrid search, reranking, and comprehensive evaluation. Built with 100% free tools.
-
-![Architecture](docs/architecture.png)
 
 <img width="1236" height="714" alt="Screenshot 2026-01-14 at 8 27 14 PM" src="https://github.com/user-attachments/assets/ba6a36c2-941b-4ba5-9ae0-61cc45c5fe36" />
 

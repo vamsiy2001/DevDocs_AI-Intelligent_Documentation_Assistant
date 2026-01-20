@@ -1,6 +1,6 @@
 # 🤖 DevDocs AI - Intelligent Documentation Assistant
 
-[![Demo](https://img.shields.io/badge/🤗-Demo-yellow)](YOUR_HF_SPACE_LINK)
+[![Demo](https://img.shields.io/badge/🤗-Demo-yellow)]([YOUR_HF_SPACE_LINK](https://huggingface.co/spaces/vamsiyvk/devdocsAI))
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 

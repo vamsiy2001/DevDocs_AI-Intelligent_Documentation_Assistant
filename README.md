@@ -101,13 +101,6 @@ python scripts/run_evaluation.py
 | **Evaluation** | RAGAS | Comprehensive metrics |
 | **Deployment** | HuggingFace Spaces | Free hosting |
 
-## 📈 Evaluation Results
-
-[Include charts/graphs showing]:
-- Retrieval quality improvements
-- Latency benchmarks
-- Comparison of configurations
-
 ## 🔬 Experiments
 
 See `notebooks/` for:
@@ -127,13 +120,6 @@ git remote add space https://huggingface.co/spaces/YOUR_USERNAME/devdocs-ai
 # Push
 git push space main
 ```
-
-## 📝 Documentation
-
-- [Architecture Overview](docs/architecture.md)
-- [Evaluation Guide](docs/evaluation.md)
-- [Deployment Guide](docs/deployment.md)
-- [API Documentation](docs/api.md)
 
 
 ## 🙏 Acknowledgments

@@ -8,10 +8,6 @@ langchain-core==0.1.52
 # LLM Providers (FREE)
 langchain-groq==0.1.3
 
-# LangChain integrations (required by hybrid_search.py)
-langchain-huggingface>=0.0.3
-langchain-chroma>=0.1.0
-
 # Vector Stores & Embeddings (FREE)
 chromadb==0.4.24
 sentence-transformers==2.7.0

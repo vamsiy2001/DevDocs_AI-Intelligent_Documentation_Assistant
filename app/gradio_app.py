@@ -228,8 +228,7 @@ class DevDocsApp:
                     chatbot = gr.Chatbot(
                         label="💬 Chat History",
                         height=400,
-                        show_label=True,
-                        type="messages"
+                        show_label=True
                     )
                     
                     with gr.Row():

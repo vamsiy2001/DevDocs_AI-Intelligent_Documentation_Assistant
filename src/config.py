@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     
  
     # LLM Configuration (Groq - FREE)
-    GROQ_API_KEY: str
+    # Set via HuggingFace Space secret or .env file
+    GROQ_API_KEY: Optional[str] = None
     LLM_MODEL: str = "llama-3.3-70b-versatile"
     LLM_TEMPERATURE: float = 0.1
     MAX_TOKENS: int = 1024
@@ -118,7 +119,7 @@ def validate_config():
     errors = []
     
     # Check required API keys
-    if not settings.GROQ_API_KEY or settings.GROQ_API_KEY == "your_groq_key_here":
+    if not settings.GROQ_API_KEY or settings.GROQ_API_KEY in ("your_groq_key_here", ""):
         errors.append("GROQ_API_KEY is not set. Get it from https://console.groq.com")
     
     # Check directories exist

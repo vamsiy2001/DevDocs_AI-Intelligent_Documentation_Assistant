@@ -1,12 +1,23 @@
+---
+title: DevDocs AI
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: 4.44.0
+app_file: app.py
+pinned: false
+---
+
 # 🤖 DevDocs AI - Intelligent Documentation Assistant
 
-[![Demo](https://img.shields.io/badge/🤗-Demo-yellow)](https://huggingface.co/spaces/vamsiyvk/devdocsAI)
+[![Demo](https://img.shields.io/badge/🤗-Demo-yellow)](YOUR_HF_SPACE_LINK)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > Production-grade RAG system with hybrid search, reranking, and comprehensive evaluation. Built with 100% free tools.
 
-<img width="1236" height="714" alt="Screenshot 2026-01-14 at 8 27 14 PM" src="https://github.com/user-attachments/assets/ba6a36c2-941b-4ba5-9ae0-61cc45c5fe36" />
+![Architecture](docs/architecture.png)
 
 ## ✨ Features
 
@@ -47,6 +58,10 @@ User Query
 
 ## 🚀 Quick Start
 
+### Prerequisites
+
+- Python 3.9+
+- pip
 
 ### Installation
 
@@ -78,15 +93,45 @@ cp .env.example .env
 ### Run Demo
 
 ```bash
-# 1. Load data
-python scripts/ingest_enhanced_docs.py
+# Quick test
+python quickstart.py
 
-# 2. Test the app
+# Or run Gradio app
 python app/gradio_app.py
+```
 
-# 3. Run evaluation
-python scripts/run_evaluation.py
+## 📖 Usage
 
+### Basic Usage
+
+```python
+from src.retrieval import HybridRetriever
+from src.agents import SimpleRAG
+
+# Initialize
+retriever = HybridRetriever()
+rag = SimpleRAG(retriever)
+
+# Query
+result = rag.query("How do I use LangChain agents?")
+
+print(result["answer"])
+print(f"Used {result['num_sources']} sources")
+```
+
+### With Evaluation
+
+```python
+from src.evaluation import RAGEvaluator
+
+evaluator = RAGEvaluator()
+test_cases = evaluator.create_test_dataset()
+
+# Evaluate
+dataset = evaluator.prepare_eval_dataset(rag, test_cases)
+results = evaluator.evaluate_rag(dataset)
+
+print(evaluator.generate_report(results))
 ```
 
 ## 🛠️ Tech Stack
@@ -100,6 +145,30 @@ python scripts/run_evaluation.py
 | **Framework** | LangChain + LangGraph | Industry standard |
 | **Evaluation** | RAGAS | Comprehensive metrics |
 | **Deployment** | HuggingFace Spaces | Free hosting |
+
+## 📂 Project Structure
+
+```
+devdocs-ai/
+├── src/
+│   ├── retrieval/        # Hybrid search, reranking
+│   ├── agents/           # LangGraph agents
+│   ├── evaluation/       # RAGAS evaluation
+│   ├── ingestion/        # Document loading
+│   └── api/              # FastAPI endpoints
+├── app/                  # Gradio/Streamlit apps
+├── data/                 # Vector stores, datasets
+├── notebooks/            # Experiments
+├── scripts/              # CLI tools
+└── tests/                # Unit tests
+```
+
+## 📈 Evaluation Results
+
+[Include charts/graphs showing]:
+- Retrieval quality improvements
+- Latency benchmarks
+- Comparison of configurations
 
 ## 🔬 Experiments
 
@@ -121,6 +190,43 @@ git remote add space https://huggingface.co/spaces/YOUR_USERNAME/devdocs-ai
 git push space main
 ```
 
+### Docker (Coming Soon)
+
+```bash
+docker build -t devdocs-ai .
+docker run -p 7860:7860 devdocs-ai
+```
+
+## 📝 Documentation
+
+- [Architecture Overview](docs/architecture.md)
+- [Evaluation Guide](docs/evaluation.md)
+- [Deployment Guide](docs/deployment.md)
+- [API Documentation](docs/api.md)
+
+## 🤝 Contributing
+
+Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing`)
+5. Open Pull Request
+
+## 📊 Roadmap
+
+- [x] Hybrid retrieval with reranking
+- [x] RAGAS evaluation framework
+- [x] Gradio deployment
+- [ ] Multi-modal support (images, code)
+- [ ] Advanced agent capabilities
+- [ ] API with rate limiting
+- [ ] Docker deployment
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details
 
 ## 🙏 Acknowledgments
 
@@ -131,8 +237,10 @@ git push space main
 
 ## 📞 Contact
 
-- **Author**: Vamsi Krishna Yerubandi
-- **LinkedIn**: https://www.linkedin.com/in/y-vamsi-krishna/
+- **Author**: Your Name
+- **Email**: your.email@example.com
+- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- **Portfolio**: [Your Portfolio](https://yourportfolio.com)
 
 ---
 

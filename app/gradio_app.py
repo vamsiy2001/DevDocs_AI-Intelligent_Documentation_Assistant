@@ -19,6 +19,14 @@ class DevDocsApp:
     def __init__(self):
         print("🚀 Initializing DevDocs AI App...")
         
+        if not settings.GROQ_API_KEY:
+            print("❌ GROQ_API_KEY is not set. Please add it as a HuggingFace Space secret.")
+            self.initialized = False
+            self.error_message = "GROQ_API_KEY is missing. Add it in Space Settings → Variables and secrets."
+            self.query_count = 0
+            self.start_time = datetime.now()
+            return
+
         try:
             # Initialize RAG system
             self.retriever = HybridRetriever()
@@ -221,7 +229,7 @@ class DevDocsApp:
                         label="💬 Chat History",
                         height=400,
                         show_label=True,
-                        avatar_images=("👤", "🤖")
+                        type="messages"
                     )
                     
                     with gr.Row():

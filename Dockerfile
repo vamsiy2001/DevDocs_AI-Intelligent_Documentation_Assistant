@@ -19,8 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# HF Spaces requires user with uid 1000
-RUN useradd -m -u 1000 user
+# HF Spaces requires user with uid 1000; chown so app can write to ./data
+RUN useradd -m -u 1000 user && chown -R user:user /app
 USER user
 ENV HOME=/home/user PATH=/home/user/.local/bin:$PATH
 
